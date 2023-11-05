@@ -7,56 +7,47 @@ body {
     font-family: "メイリオ";
     color: black;
     background-color: #F0F8FF;
-    margin: 0 0 0 0;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    margin: 60px 0; 
 }
 
 .wrapper {
-    margin: 0 auto 0 auto;
+    margin: 0 auto;
     max-width: 960px;
-}
-
-.headnav {
-    display: flex;
-}
-
-.logo {
-    margin: 0 0 0 30px; 
-    text-align: left;
-    line-height: 0;
-}
-
-.logo img {
-    width: 160px;    
-}
-
-.login {
-    margin-left: 430px;    
 }
 
 .header {
     background-color: #3f5170;
-    padding-top: 3px;
-    padding-bottom: 3px;
+    padding: 3px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* ヘッダーを他の要素の上に配置 */
+}
+
+.headnav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.login {
+    margin-right: 20px;
 }
 
 .headnav li {
     display: inline;
     list-style-type: none;
-    margin-right: 50px;
+    margin-right: 20px;
 }
 
-.headnav a:link {
-    color: white;
-    text-decoration: none;
-}
-.headnav a:visited {
-    color: white;
-    text-decoration: none;
-}
-.headnav a:hover {
-    color: white;
-    text-decoration: none;
-}
+.headnav a:link,
+.headnav a:visited,
+.headnav a:hover,
 .headnav a:active {
     color: white;
     text-decoration: none;
@@ -65,29 +56,27 @@ body {
 .footer {
     text-align: center;
     background-color: #3f5170;
-    padding-top: 3px;
-    padding-bottom: 3px;
+    padding: 3px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* フッターを他の要素の上に配置 */
+}
+
+.footnav {
+    text-align: center;
 }
 
 .footnav li {
     display: inline;
     list-style-type: none;
-    margin-left: 125px;
-    margin-right: 125px;
+    margin: 0 20px;
 }
 
-.footnav a:link {
-    color: white;
-    text-decoration: none;
-}
-.footnav a:visited {
-    color: white;
-    text-decoration: none;
-}
-.footnav a:hover {
-    color: white;
-    text-decoration: none;
-}
+.footnav a:link,
+.footnav a:visited,
+.footnav a:hover,
 .footnav a:active {
     color: white;
     text-decoration: none;
@@ -98,7 +87,7 @@ body {
     height: 475px;
 }
 
-/*localist.blade.php、niced.blade.php、loca_sort_by_pop.blade.php、postlist.blade.phpのスタイリング*/
+/*localist.blade.php、niced.blade.php、locapop.blade.php、postlist.blade.phpのスタイリング*/
 
 .search {
     display: flex;
@@ -119,10 +108,24 @@ button[type="submit"] {
     cursor: pointer;
 }
 
-.aiseki-image {
-    max-width: 100%;
-    height: auto;
-    padding: 0 1em 1em 0;
+.location a:link{
+    color: black;
+    text-decoration: none;
+}
+
+.location a:visited{
+    color: black;
+    text-decoration: none;
+}
+
+.location a:hover{
+    color: black;
+    text-decoration: none;
+}
+
+.location a:active{
+    color: black;
+    text-decoration: none;
 }
 
 .date{
@@ -158,9 +161,23 @@ button[type="submit"] {
     margin: 0 20px;
 }
 
+.paginate a:link{
+    text-decoration: none;
+    color: #fff;
+}
+
+.paginate a:visited{
+    color: black;
+}
+
 .paginate a:hover{
     background-color: #333;
-    color: #fff; 
+    color: #fff;
+}
+
+.paginate a:active{
+    background-color: #333;
+    color: #fff;
 }
 
 .locamove a:link{
@@ -183,6 +200,26 @@ button[type="submit"] {
     text-decoration: none;
 }
 
+.map a:link{
+    color: black;
+    text-decoration: none;
+}
+
+.map a:visited{
+    color: black;
+    text-decoration: none;
+}
+
+.map a:hover{
+    color: black;
+    text-decoration: none;
+}
+
+.map a:active{
+    color: black;
+    text-decoration: none;
+}
+
 .mapspot{
     display: flex;
 }
@@ -195,25 +232,6 @@ button[type="submit"] {
     margin: 5px 20px 5px 0;
 }
 
-.mapspot a:link{
-    color: black;
-    text-decoration: none;
-}
-
-.mapspot a:visited{
-    color: black;
-    text-decoration: none;
-}
-
-.mapspot a:hover{
-    color: black;
-    text-decoration: none;
-}
-
-.mapspot a:active{
-    color: black;
-    text-decoration: none;
-}
 
 
 .nicecounts{
@@ -293,17 +311,6 @@ input[type="submit"] {
 
 /**location.blade.phpとmap_spot_detail.blade.phpのスタイリング**/
 
-.aiseki-photo{
-    max-width: 100%;
-    height: auto;
-    float: left;
-    padding: 0 1em 1em 0;
-}
-
-.clear{
-    clear: both;    
-}
-
 .overview{
     line-height: 1.6;
 }
@@ -329,14 +336,6 @@ input[type="submit"] {
         margin: 0 8px;
     }
     
-    .logo {
-        margin: 0 0 0 30px;
-    }
-    
-    .logo img {
-        width: 160px;    
-    }
-    
     .login{
         margin-left: 40px;    
     }
@@ -346,12 +345,6 @@ input[type="submit"] {
         list-style-type: none;
         margin-left: 60px;
         margin-right: 60px;
-    }
-    
-    .aiseki-photo, .aiseki-image{
-        max-width: 100%;
-        height: auto;
-        padding-right: 0;
     }
     
     select[name="post[location_id]"] {
