@@ -11,20 +11,21 @@
                     <button type="submit">検索</button>
                 </div>
         </form>
-        <div>
             <!--LocationControllerのshowLocalistメソッドで受け取ったlocationsを回す-->
             @foreach ($locations as $location)
-                    <a href="/locations/{{$location->id}}"><img src="{{ asset($location->image_path) }}" alt="相席食堂ロケ写真" class="aiseki-image"></a>
-                    <div class="date">
-                        <h4>日付</h4>
-                        <p>{{$location->date}}</p>
-                    </div>
-                    <div class="celebrity">
-                        <h4>旅人</h4>
-                        <p>{{$location->celebrity}}</p>
-                    </div>
+                <div class="location">
+                    <a href="/locations/{{$location->id}}">
+                        <div class="date">
+                            <h4>日付</h4>
+                            <p>{{$location->date}}</p>
+                        </div>
+                        <div class="celebrity">
+                            <h4>旅人</h4>
+                            <p>{{$location->celebrity}}</p>
+                        </div>
+                    </a>
+                </div>
             @endforeach
-        </div>
         <!--ページネーション-->
         <div class='paginate'>
             {{ $locations->links() }}

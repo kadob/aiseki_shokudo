@@ -36,5 +36,6 @@
             @endif
         </span>
         <!--マップいいね機能ここまで-->
+        <h3 class="locamove"><a href="/nices">いいね一覧　＞</a></h3>
     </main>
 </x-layout>

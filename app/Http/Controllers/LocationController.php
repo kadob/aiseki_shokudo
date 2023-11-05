@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Location;
 use App\Models\Nicelocation;
+use App\Models\Post;
 
 class LocationController extends Controller
 {
@@ -45,15 +46,33 @@ class LocationController extends Controller
     {
         //nicelocationテーブルのlocation_idと$locationのidが一致し、認証されたユーザーIDと一致するレコードの一番最初のレコードを代入。
         $nicelocation=Nicelocation::where('location_id',$location->id)->where('user_id',auth()->user()->id)->first();
+        $locationposts=Post::where('location_id',$location->id)->orderBy('created_at', 'desc')->take(3)->get();
         //locationとnicelocationという変数を持たせてロケ詳細画面を返す
-        return view('locations.location',compact('location','nicelocation'));
+        return view('locations.location',compact('location','nicelocation','locationposts'));
     }
     
     public function showLocapop()
     {
         //リレーションを組むnicelocationからいいねの数で降順に並べて、取得したのを代入
         $locations = Location::withCount('nicelocations')->orderBy('nicelocations_count','desc')->paginate(6);
+        
+        $currentPage = $locations->currentPage();
+
+        $rank = ($currentPage - 1) * 6 + 1;
+        $previousCount = null;
+
+        $locations->transform(function ($location) use (&$rank, &$previousCount) {
+            if ($previousCount !== null && $location->nicelocations_count !== $previousCount) {
+                $rank++;
+            }
+    
+            $location->rank = $rank;
+            $previousCount = $location->nicelocations_count;
+    
+            return $location;
+        });
+        
         //locationsという変数を持たせてロケ人気ランキング画面を返す
-        return view('locations/loca_sort_by_pop',compact('locations'));
+        return view('locations.locapop',compact('locations'));
     }
 }

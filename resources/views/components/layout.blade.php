@@ -11,7 +11,6 @@
         <div class="wrapper">
         <header class="header">
             <nav class="headnav">
-                <div class="logo"><img src="{{ asset('images/aiseki_shokudo/相席食堂ロゴ.jpg') }}" alt="相席食堂"></div>
                 <div class="login">
                     @if (Route::has('login'))
                         <ul>

@@ -4,7 +4,6 @@
     </x-slot>
     <main>
         <div>
-            <img src="{{ asset($location->image_path) }}" alt="相席食堂ロケ写真" class="aiseki-photo">
             <h2>旅人</h2>
             <p>{{$location->celebrity}}</p>
             <h2>日付</h2>
@@ -13,8 +12,15 @@
             <p>{{$location->place}}</p>
             <h2>キーフレーズ</h2>
             <p>{{$location->key_phrase}}</p>
-            <h2 class="clear">ロケ内容</h2>
+            <h2>ロケ内容</h2>
             <p class="overview">{{$location->overview}}</p>
+        </div>
+        <div>
+            <h2>投稿内容</h2>
+            @foreach($locationposts as $post)
+                <p>{{$post->user->name}}</p>
+                <p>{{$post->content}}</p>    
+            @endforeach
         </div>
         <!--ロケいいね機能ここから-->
         <span class="nice">
