@@ -2,20 +2,34 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Nicelocation extends Model
+class NiceLocation extends Model
 {
-    use HasFactory;
-    
-    //nicelocation：user＝多：１のリレーションを組む
-    public function user(){
+    /**
+     * $id
+     * $user_id
+     * $location_id
+     * $created_at
+     * $updated_at
+     * $deleted_at
+     */
+
+    /**
+     * userテーブルとリレーションする
+     * @return void
+     */
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
-    
-    //nicelocation：location＝多：１のリレーションを組む
-    public function location(){
-        return $this->belongsTo(Location::class);    
+
+    /**
+     * locationテーブルとリレーションする
+     * @return void
+     */
+    public function location()
+    {
+        return $this->belongsTo(Location::class);
     }
 }

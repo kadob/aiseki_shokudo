@@ -2,31 +2,54 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Location extends Model
 {
-    //６を上限にページネーションし、更新順に並べて返す。
-    public function getPaginateByLimit(int $limit_count = 6)
+    /**
+     * $id
+     * @property string $celebrity
+     * @property string $date
+     * @property string $place
+     * @property string $overview
+     * @property string $key_phrase
+     * $created_at
+     * $updated_at
+     * $deleted_at
+     */
+
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
+    public function paginateLocationByLimit()
     {
-        return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
+        return $this->orderBy('updated_at', 'DESC')->paginate(6);
     }
-    
-    use HasFactory;
-    
-    //map：location＝多：１のリレーションを組む
+
+    /**
+     * mapテーブルとリレーションする
+     * @return void
+     */
     public function maps()
     {
         return $this->hasMany(Map::class);
     }
-    
-    //nicelocation：location＝多：１のリレーションを組む
-    public function nicelocations()
+
+    /**
+     * niceLocationテーブルとリレーションする
+     * @return void
+     */
+    public function niceLocations()
     {
-        return $this->hasMany(Nicelocation::class);    
+        return $this->hasMany(NiceLocation::class);
     }
-    
+
+    /**
+     * postテーブルとリレーションする
+     * @return void
+     */
     public function posts()
     {
         return $this->hasMany(Post::class);

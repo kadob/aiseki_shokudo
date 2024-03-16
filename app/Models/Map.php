@@ -2,22 +2,37 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Map extends Model
 {
-    use HasFactory;
-    
-    //map：location＝多：１のリレーションを組む
+    /**
+     * @$id
+     * $location_id
+     * @property string $store_name
+     * @property string $address
+     * @property string $gourmet
+     * @property string $keyword
+     * $created_at
+     * $updated_at
+     * $deleted_at
+     */
+
+    /**
+     * locationテーブルとリレーションする
+     * @return void
+     */
     public function location()
     {
         return $this->belongsTo(Location::class);
     }
-    
-    //nicemap：map＝多：１のリレーションを組む
-    public function nicemaps()
+
+    /**
+     * niceMapテーブルとリレーションする
+     * @return void
+     */
+    public function niceMaps()
     {
-        return $this->hasMany(Nicemap::class);
+        return $this->hasMany(NiceMap::class);
     }
 }

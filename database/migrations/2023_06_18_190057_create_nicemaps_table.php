@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('nicemaps', function (Blueprint $table) {
+        Schema::create('niceMaps', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('map_id');
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nicemaps');
+        Schema::dropIfExists('niceMaps');
     }
 };
