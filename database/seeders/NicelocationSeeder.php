@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use DateTime;
 
-class NicelocationSeeder extends Seeder
+class NiceLocationSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,7 +16,7 @@ class NicelocationSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('nicelocations')->insert([
+        DB::table('niceLocations')->insert([
             'user_id' => 1,
             'location_id' => 1,
             'created_at' => new DateTime(),

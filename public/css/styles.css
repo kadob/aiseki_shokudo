@@ -1,6 +1,5 @@
-/*layout.blade.phpのスタイリング*/
 html * {
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 body {
@@ -12,7 +11,7 @@ body {
 }
 
 main {
-    margin: 60px 0; 
+    margin: 60px 0;
 }
 
 .wrapper {
@@ -27,7 +26,7 @@ main {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000; /* ヘッダーを他の要素の上に配置 */
+    z-index: 1000;
 }
 
 .headnav {
@@ -61,7 +60,8 @@ main {
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 1000; /* フッターを他の要素の上に配置 */
+    z-index: 1000;
+    /* フッターを他の要素の上に配置 */
 }
 
 .footnav {
@@ -96,8 +96,8 @@ main {
 }
 
 input[type="search"] {
-    flex-grow: 1; 
-    padding: 5px; 
+    flex-grow: 1;
+    padding: 5px;
 }
 
 button[type="submit"] {
@@ -108,52 +108,52 @@ button[type="submit"] {
     cursor: pointer;
 }
 
-.location a:link{
+.location a:link {
     color: black;
     text-decoration: none;
 }
 
-.location a:visited{
+.location a:visited {
     color: black;
     text-decoration: none;
 }
 
-.location a:hover{
+.location a:hover {
     color: black;
     text-decoration: none;
 }
 
-.location a:active{
+.location a:active {
     color: black;
     text-decoration: none;
 }
 
-.date{
+.date {
     display: flex;
 }
 
-.date h4{
+.date h4 {
     margin: 5px 20px 5px 0;
 }
 
-.date p{
+.date p {
     margin: 5px 20px 5px 0;
 }
 
-.celebrity{
+.celebrity {
     display: flex;
 }
 
-.celebrity h4{
+.celebrity h4 {
     margin: 5px 20px 5px 0;
 }
 
-.celebrity p{
+.celebrity p {
     margin: 5px 20px 5px 0;
 }
 
 .paginate {
-    text-align: center;    
+    text-align: center;
 }
 
 .paginate li {
@@ -161,80 +161,80 @@ button[type="submit"] {
     margin: 0 20px;
 }
 
-.paginate a:link{
+.paginate a:link {
     text-decoration: none;
     color: #fff;
 }
 
-.paginate a:visited{
+.paginate a:visited {
     color: black;
 }
 
-.paginate a:hover{
+.paginate a:hover {
     background-color: #333;
     color: #fff;
 }
 
-.paginate a:active{
+.paginate a:active {
     background-color: #333;
     color: #fff;
 }
 
-.locamove a:link{
+.locamove a:link {
     color: black;
     text-decoration: none;
 }
 
-.locamove a:visited{
+.locamove a:visited {
     color: black;
     text-decoration: none;
 }
 
-.locamove a:hover{
+.locamove a:hover {
     color: black;
     text-decoration: none;
 }
 
-.locamove a:active{
+.locamove a:active {
     color: black;
     text-decoration: none;
 }
 
-.map a:link{
+.map a:link {
     color: black;
     text-decoration: none;
 }
 
-.map a:visited{
+.map a:visited {
     color: black;
     text-decoration: none;
 }
 
-.map a:hover{
+.map a:hover {
     color: black;
     text-decoration: none;
 }
 
-.map a:active{
+.map a:active {
     color: black;
     text-decoration: none;
 }
 
-.mapspot{
+.mapspot {
     display: flex;
 }
 
-.mapspot h4{
+.mapspot h4 {
     margin: 5px 20px 5px 0;
 }
 
-.mapspot p{
+.mapspot p {
     margin: 5px 20px 5px 0;
 }
 
 
 
-.nicecounts{
+.nicecounts {
     display: flex;
 }
 
@@ -246,7 +246,7 @@ button[type="submit"] {
     margin: 5px 20px 5px 0;
 }
 
-.postlist{
+.postlist {
     display: flex;
 }
 
@@ -254,19 +254,19 @@ button[type="submit"] {
     flex: 1;
 }
 
-.click{
+.click {
     display: flex;
     align-items: center;
 }
 
-buttton[onclick="location.href='/posts/{{ $post->id }}/edit'"]{
+buttton[onclick="location.href='/posts/{{ $post->id }}/edit'"] {
     padding: 10px 10px;
     margin-right: 10px;
 }
 
-button[type="button"]{
+button[type="button"] {
     margin-left: 10px;
-    margin-right: 10px;    
+    margin-right: 10px;
 }
 
 /**postform.blade.phpとeditpost.blade.phpのスタイリング**/
@@ -289,29 +289,29 @@ input[type="submit"] {
     width: 30em;
 }
 
-.postmove a:link{
+.postmove a:link {
     color: black;
     text-decoration: none;
 }
 
-.postmove a:visited{
+.postmove a:visited {
     color: black;
     text-decoration: none;
 }
 
-.postmove a:hover{
+.postmove a:hover {
     color: black;
     text-decoration: none;
 }
 
-.postmove a:active{
+.postmove a:active {
     color: black;
     text-decoration: none;
 }
 
 /**location.blade.phpとmap_spot_detail.blade.phpのスタイリング**/
 
-.overview{
+.overview {
     line-height: 1.6;
 }
 
@@ -319,12 +319,15 @@ input[type="submit"] {
     color: red;
     text-decoration: none;
 }
+
 .nice a:visited {
     color: red;
 }
+
 .nice a:hover {
     color: red;
 }
+
 .nice a:active {
     color: red;
 }
@@ -335,18 +338,18 @@ input[type="submit"] {
         max-width: 100%;
         margin: 0 8px;
     }
-    
-    .login{
-        margin-left: 40px;    
+
+    .login {
+        margin-left: 40px;
     }
-        
+
     .footnav li {
         display: inline;
         list-style-type: none;
         margin-left: 60px;
         margin-right: 60px;
     }
-    
+
     select[name="post[location_id]"] {
         width: 100%;
     }
