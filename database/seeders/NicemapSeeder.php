@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use DateTime;
 
-class NiceMapSeeder extends Seeder
+class NicemapSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,7 +16,7 @@ class NiceMapSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('niceMaps')->insert([
+        DB::table('nicemaps')->insert([
             'user_id' => 1,
             'map_id' => 1,
             'created_at' => new DateTime(),

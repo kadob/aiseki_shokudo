@@ -2,23 +2,15 @@
 
 namespace App\Models;
 
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    /**
-     * $id
-     * @property string $name
-     * @property string $email
-     * @property string $password
-     * $created_at
-     * $updated_at
-     * $deleted_at
-     */
-
-    use HasApiTokens, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -49,31 +41,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    /**
-     * niceLocationテーブルとリレーションする
-     * @return void
-     */
-    public function niceLocations()
+    
+    //nicelocation：user＝多：１のリレーションを組む
+    public function nicelocations()
     {
-        return $this->hasMany(Nicelocation::class);
+        return $this->hasMany(Nicelocation::class);   
     }
-
-    /**
-     * niceMapテーブルとリレーションする
-     * @return void
-     */
-    public function niceMaps()
-    {
+    
+    //nicemap：user＝多：１のリレーションを組む
+    public function nicemaps(){
         return $this->hasMany(Nicemap::class);
     }
-
-    /**
-     * postテーブルとリレーションする
-     * @return void
-     */
-    public function posts()
-    {
+    
+    //post : user=多 : １のリレーションを組む
+    public function posts(){
         return $this->hasMany(Post::class);
     }
 }

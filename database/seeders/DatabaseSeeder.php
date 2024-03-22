@@ -14,12 +14,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // \App\Models\User::factory(10)->create();
+
+        // \App\Models\User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
+        
+        //seederを呼び出す
         $this->call([
             LocationSeeder::class,
             MapSeeder::class,
             UserSeeder::class,
-            NiceLocationSeeder::class,
-            NiceMapSeeder::class,
+            NicelocationSeeder::class,
+            NicemapSeeder::class,
         ]);
     }
 }

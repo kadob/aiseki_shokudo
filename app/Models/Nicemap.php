@@ -2,32 +2,20 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class NiceMap extends Model
+class Nicemap extends Model
 {
-    /**
-     * $id
-     * $user_id
-     * $map_id
-     * $created_at
-     * $updated_at
-     * $deleted_at
-     */
-
-    /**
-     * mapテーブルとリレーションする
-     * @return void
-     */
+    use HasFactory;
+    
+    //nicemap：map＝多：１のリレーションを組む
     public function map()
     {
-        return $this->belongsTo(Map::class);
+        return $this->belongsTo(Map::class);    
     }
-
-    /**
-     * userテーブルとリレーションする
-     * @return void
-     */
+    
+    //nicemap：user＝多：１のリレーションを組む
     public function user()
     {
         return $this->belongsTo(User::class);

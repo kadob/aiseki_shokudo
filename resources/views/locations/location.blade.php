@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot name="title">
-        ロケ詳細
+        相席食堂ロケ詳細
     </x-slot>
     <main>
         <div>
@@ -17,27 +17,29 @@
         </div>
         <div>
             <h2>投稿内容</h2>
-            @foreach($posts as $post)
+            @foreach($locationposts as $post)
                 <p>{{$post->user->name}}</p>
-                <p>{{$post->content}}</p>
+                <p>{{$post->content}}</p>    
             @endforeach
         </div>
+        <!--ロケいいね機能ここから-->
         <span class="nice">
-            @if($niceLocation)
+            @if($nicelocation)
             <a href="{{ route('unnice',$location)}}">
                 ♥
                 <span class="badge">
-                    {{ $location->niceLocations()->count() }}
+                    {{ $location->nicelocations()->count() }}
                 </span>
             </a>
             @else
             <a href="{{ route('nice',$location)}}">
                 ♥
                 <span class="badge">
-                    {{ $location->niceLocations()->count() }}
+                    {{ $location->nicelocations()->count() }}
                 </span>
             </a>
             @endif
         </span>
+        <!--ロケいいね機能ここまで-->
     </main>
 </x-layout>

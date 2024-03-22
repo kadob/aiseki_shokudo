@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('maps', function (Blueprint $table) {
             $table->id();
             $table->foreignId('location_id');
-            $table->string('store_name', 50);
-            $table->string('address', 100);
-            $table->string('gourmet', 50)->nullable();
-            $table->string('keyword', 100)->nullable();
+            $table->string('store_name',50);//店の名前
+            $table->string('adress',100);//店の住所
+            $table->string('gormet',50)->nullable();//出演者が食べたもの
+            $table->string('key_word',100)->nullable();//locationsマイグレーションファイルのloca_phrase
             $table->timestamps();
             $table->softDeletes();
         });
