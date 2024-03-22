@@ -12,7 +12,6 @@
             <p>{{ $map->location->date }}</p>
             <h2>住所</h2>
             <p>{{ $map->address }}</p>
-            
             <h2>グルメ</h2>
             <p>{{ $map->gourmet }}</p>
             <h2>キーワード</h2>
