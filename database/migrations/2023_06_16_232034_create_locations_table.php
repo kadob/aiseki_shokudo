@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
+            $table->string('image_path',100);
             $table->string('celebrity', 30);
             $table->string('date', 10);
             $table->string('place', 50);

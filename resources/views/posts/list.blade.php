@@ -2,21 +2,17 @@
     <x-slot name="title">
         投稿リスト
     </x-slot>
-    <main>
         <h1>投稿一覧</h1>
         @foreach($posts as $post)
-        <div class="postList">
-            <div class="post_celebrity">
+        <div class="row">
+            <div class="col mb-3">
                 <h4>旅人</h4>
                 <p>{{$post->location->celebrity}}</p>
-            </div>
-            <div class="click">
-                <button onclick="location.href='/posts/{{ $post->id }}/edit'">編集</button>
-                <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <button type="button" onclick="deletePost({{ $post->id }})">削除</button>
-                </form>
+            {{ Form::button('編集', ['class' => 'btn btn-primary btn-x', 'onclick' => 'window.location.href="/posts/{{ $post->id }}/edit"']) }}
+            {{ Form::open(['url' => '/posts/{{ $post->id }}' ,'method' => 'DELETE']) }}
+            {{ Form::token() }}
+            {{ Form::submit('削除',['class' => 'btn btn-danger btn-x', 'onclick' => 'deletePost({{ $post->id }})']) }}
+            {{ Form::close() }}
                 <script>
                     function deletePost(id) {
                         'use strict'
@@ -33,7 +29,6 @@
         </div>
         @endforeach
         <div class='paginate'>
-            {{ $posts->links() }}
+            {{ $posts->links(pagination::bootstrap-4) }}
         </div>
-    </main>
 </x-layout>

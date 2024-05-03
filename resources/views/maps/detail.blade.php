@@ -2,7 +2,6 @@
     <x-slot name="title">
         ちょっと待てぃ！スポット
     </x-slot>
-    <main>
         <div>
             <h2>ちょっと待てぃ！ロケ地</h2>
             <p>{{ $map->store_name }}</p>
@@ -34,6 +33,5 @@
             </a>
             @endif
         </span>
-        <h3 class="locationMove"><a href="/nice">いいね一覧　＞</a></h3>
-    </main>
+        {{ Form::button('いいね一覧', ['class' => 'btn btn-primary btn-lg', 'onclick' => 'window.location.href='/nice']) }}
 </x-layout>
