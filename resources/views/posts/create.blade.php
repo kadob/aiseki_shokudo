@@ -2,22 +2,13 @@
     <x-slot name="title">
         投稿
     </x-slot>
-    <main>
-        <h1>投稿</h1>
-        <form action="/posts" method="POST">
-            @csrf
-            <h2>旅人</h2>
-            <select name="post[location_id]">
-                @foreach($locations as $location)
-                <option value="{{ $location->id }}">{{ $location->celebrity }}</option>
-                @endforeach
-            </select>
-            <input type="hidden" name="post[user_id]" value="{{ $user_id }}">
-            <h2>投稿内容</h2>
-            <textarea name="post[content]" placeholder="〇〇〇のところが面白かった！">{{ old('post.content') }}</textarea>
-            <p class="content_error">{{ $errors->first('post.content') }}</p>
-            <input type="submit" value="投稿する" />
-        </form>
-        <h2 class="postMove"><a href="/posts">自分の投稿一覧　＞</a></h2>
-    </main>
+            <div class=col-md-4>投稿</div>
+            {{ Form::open(['url' => '/posts'])}}
+            {{ Form::token()}}
+            {{ Form::select('post[location_id]', $locations->pluck('id', 'celebrity'), null, ['class' => 'form-select'])}}
+            {{ Form::textarea('post[content]', old('post.content'), ['class' => 'form-control','placeholder' => '〇〇〇のところが面白かった！']) }}
+            <p class="content_error">{{ trans('error.', ['' => $errors->first('post.content')]) }}</p>
+            {{ Form::submit('投稿する',['class'=>'btn btn-primary btn-lg'])}}
+            {{ Form::close() }}
+        {{ Form::button('自分の投稿一覧', ['class' => 'btn btn-primary btn-lg', 'onclick' => 'window.location.href='/posts']) }}
 </x-layout>

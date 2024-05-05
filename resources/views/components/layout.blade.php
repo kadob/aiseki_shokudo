@@ -3,40 +3,29 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="ABCテレビの相席食堂のマップアプリが誕生！相席食堂好きが相席食堂をより楽しめるアプリとなっています！ぜひのぞきに来てください！">
-        <title>{{$title}}</title>
-        <link rel="stylesheet" href="{{ asset('css/styles.css') }}"> 
+        <meta name="description" content="ABCテレビの相席食堂のマップアプリが誕生!相席食堂好きが相席食堂をより楽しめるアプリとなっています!ぜひのぞきに来てください！">
+        <title>{{ $title }}</title>
     </head>
     <body>
-        <div class="wrapper">
-        <header class="header">
-            <nav class="headnav">
-                <div class="login">
+        <div class="container">
+            <div class="row">
                     @if (Route::has('login'))
-                        <ul>
                             @auth
-                                    <li><a href="/profile">プロフィール</a></li>
+                                <div class="col-md-4"><a href="/profile">プロフィール</a></div>
                                 @else
-                                    <li><a href="{{ route('login') }}">ログイン</a></li>
+                                    <div class="col-md-4"><a href="{{ route('login') }}">ログイン</a></div>
                                 @if (Route::has('register'))
-                                    <li><a href="{{ route('register') }}">アカウント登録</a></li>
+                                    <div class="col-md-4"><a href="{{ route('register') }}">アカウント登録</a></div>
                             @endif
                             @endauth
-                        </ul>
                     @endif
-                </div>
-            </nav>
-        </header>
+            </div>
         {{$slot}}
-        <footer class="footer">
-            <nav class="footnav">
-                <ul>
-                    <li><a href="/posts/create">投稿</a></li>
-                    <li><a href="/">マップ</a></li>
-                    <li><a href="/locations">ロケ検索</a></li>
-                </ul>
-            </nav>
-        </footer>
+            <div class="row">
+                <div class="col-md-4"><a href="/posts/create">投稿</a><div>
+                <div class="col-md-4"><a href="/">マップ</a><div>
+                <div class="col-md-4"><a href="/locations">ロケ検索</a><div>
+            </div>
         </div>
     </body>
 </html>

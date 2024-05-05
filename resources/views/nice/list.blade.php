@@ -2,37 +2,31 @@
     <x-slot name="title">
         マイいいねリスト
     </x-slot>
-    <main>
         <h1>いいねスポット</h1>
-        @foreach($niceMaps as $niceMap)
-        <div class="map">
-            <a href="/maps/{{$niceMap->map->id}}">
-                <div class="mapSpot">
+        <div class="row">
+            @foreach($niceMaps as $niceMap)
+            <div class="col-12 mb-3">
+                <a href="/maps/{{$niceMap->map->id}}">
                     <h4>ロケ地</h4>
                     <p>{{$niceMap->map->store_name}}</p>
-                </div>
-                <div class="celebrity">
                     <h4>旅人</h4>
                     <p>{{$niceMap->map->location->celebrity}}</p>
-                </div>
-            </a>
+                </a>
+            </div>
+            @endforeach
         </div>
-        @endforeach
         <h1>いいねロケ</h1>
-        @foreach($niceLocations as $niceLocation)
-        <div class="location">
-            <a href="/locations/{{ $niceLocation->location->id }}">
-                <div class="date">
+        <div class="row">
+            @foreach($niceLocations as $niceLocation)
+            <div class="col-12 mb-3">
+                <a href="/locations/{{ $niceLocation->location->id }}">
                     <h4>日付</h4>
                     <p>{{ $niceLocation->location->date }}</p>
-                </div>
-                <div class="celebrity">
                     <h4>旅人</h4>
                     <p>{{ $niceLocation->location->celebrity }}</p>
-                </div>
-            </a>
+                </a>
+            </div>
+            @endforeach
         </div>
-        @endforeach
-        <h3 class="locationMove"><a href="/locations">ロケリスト　＞</a></h3>
-    </main>
+        {{ Form::button('ロケリスト', ['class' => 'btn btn-primary btn-lg', 'onclick' => 'window.location.href='/locations']) }}
 </x-layout>
